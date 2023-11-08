@@ -32,8 +32,12 @@
   span {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   ul {
     list-style: none;
+    li {
+      cursor: pointer;
+    }
   }
 }

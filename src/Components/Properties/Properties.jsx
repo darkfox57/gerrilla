@@ -75,9 +75,9 @@ export default function Properties() {
         </span>
         <ul>
           {categories.map((category, index) => (
-            <option key={index} onClick={() => handleFilterChange(category)}>
+            <li key={index} onClick={() => handleFilterChange(category)}>
               {category}
-            </option>
+            </li>
           ))}
         </ul>
       </div>
