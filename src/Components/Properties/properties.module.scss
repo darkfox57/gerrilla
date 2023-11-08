@@ -26,3 +26,14 @@
   width: 100%;
   gap: 75px;
 }
+
+.filter {
+  align-self: flex-end;
+  span {
+    display: flex;
+    align-items: center;
+  }
+  ul {
+    list-style: none;
+  }
+}

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ChevronDown } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import PropertyCard from '../PropertyCard/PropertyCard'
 import styles from './properties.module.scss'
@@ -7,6 +8,9 @@ export default function Properties() {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [limit, setLimit] = useState(3)
+  const [filter, setFilter] = useState('All')
+  const categories = ['Apartment', 'House', 'Penthouse', 'Villa']
+
   const accessToken = 'TVMyOuOqkY3kNh_wDrlce2zwju8TDkI-96twtPci8fk'
 
   const fetchData = () => {
@@ -53,20 +57,42 @@ export default function Properties() {
     fetchData()
   }
 
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter)
+  }
+
+  const filteredData =
+    filter === 'All' ? data : data.filter((item) => item.category === filter)
+
   return (
     <section className={styles.wrapper}>
       <h3>Properties</h3>
       <p>Turpis facilisis tempor pulvinar in lobortis ornare magna.</p>
+      <div className={styles.filter}>
+        <span>
+          <span onClick={() => handleFilterChange('All')}>All categories</span>
+          <ChevronDown />
+        </span>
+        <ul>
+          {categories.map((category, index) => (
+            <option key={index} onClick={() => handleFilterChange(category)}>
+              {category}
+            </option>
+          ))}
+        </ul>
+      </div>
       <div className={styles.properties}>
-        {data.slice(0, limit).map(({ id, title, address, image, category }) => (
-          <PropertyCard
-            key={id}
-            title={title}
-            address={address}
-            image={image.url}
-            category={category}
-          />
-        ))}
+        {filteredData
+          .slice(0, limit)
+          .map(({ id, title, address, image, category }) => (
+            <PropertyCard
+              key={id}
+              title={title}
+              address={address}
+              image={image.url}
+              category={category}
+            />
+          ))}
       </div>
       {isLoading ? (
         <p>Loading...</p>
