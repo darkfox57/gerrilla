@@ -1,0 +1,22 @@
+@use '../../styles/mixin' as mixin;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: mixin.$section-padding;
+  gap: 32px;
+  background-color: #afd4e2;
+  height: 100vh;
+  background-image: url('/house-1.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  h2 {
+    @include mixin.title;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}

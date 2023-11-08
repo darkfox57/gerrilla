@@ -1,0 +1,28 @@
+@use '../../styles/mixin' as mixin;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: mixin.$section-padding;
+  gap: 23px;
+  h3 {
+    @include mixin.subtitle;
+  }
+  button {
+    margin-top: 50px;
+    align-self: center;
+    padding: 18px 24px;
+    span {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+  }
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 75px;
+}

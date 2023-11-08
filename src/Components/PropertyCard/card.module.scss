@@ -1,0 +1,37 @@
+@use '../../styles/mixin' as mixin;
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: auto;
+  img {
+    top: 0;
+    left: 0;
+  }
+}
+
+.info {
+  position: absolute;
+  bottom: -50px;
+  left: calc(50% - 150px);
+  padding: 30px;
+  background-color: mixin.$main-bg;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.04);
+  h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: mixin.$main-color;
+  }
+  p {
+    font-size: 1rem;
+    color: mixin.$main-color;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

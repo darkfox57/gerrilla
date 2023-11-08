@@ -1,0 +1,49 @@
+@use '../../styles/mixin' as mixin;
+
+.footer {
+  background-color: mixin.$main-color;
+  color: #bdbdbd;
+  padding: mixin.$section-padding;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  flex-wrap: wrap;
+  width: 100%;
+  color: mixin.$main-white;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  flex-wrap: wrap;
+  width: 100%;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: mixin.$main-white;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #bdbdbd;
+    }
+  }
+}
+.info {
+  display: flex;
+  color: #bdbdbd;
+
+  flex-direction: column;
+  gap: 23px;
+}
